@@ -28,7 +28,7 @@ A viral haplotype reconstruction tool for long reads.
 #### Options
 `-o  | --out                Path where to output the results. (default:./)<BR/>
 -p  | --prefix STR:                Prefix of output file. (default: rvhaplo)<BR/>
--e  | --error_rate FLOAT:         Sequencing error rate. (default: 0.1)`<BR/>
+-e  | --error_rate FLOAT:         Sequencing error rate. (default: 0.1)<BR/>
 -s  | --signi_level FLOAT:        Significance level for binomial tests. (default: 0.05)<BR/>
 -c  | --cond_pro FLOAT:           Minimum conditional probability for a SNV site. (default: 0.65)<BR/>
 -n1 | --num_read_1 INT:           Minimum # of reads for marginal probability. (default:10)<BR/>
