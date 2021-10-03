@@ -13,8 +13,8 @@ A viral haplotype reconstruction tool for long reads.
 * Required python package: markov_clustering, pysamstats >= 1.1.2, networkx >= 2.5.1, pandas >= 1.1.3
 
 #### Install Dependencies
-conda create -n rvhaplo python==3.6
-conda activate rvhaplo
+`conda create -n rvhaplo python==3.6`<BR/>
+conda activate rvhaplo<BR/>
 conda install -c bioconda samtools pysamstats
 pip install markov_clustering pandas
 ####
