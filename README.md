@@ -14,7 +14,7 @@ A viral haplotype reconstruction tool for long reads.
 
 #### Install Dependencies
 `conda create -n rvhaplo python==3.6`<BR/>
-conda activate rvhaplo<BR/>
-conda install -c bioconda samtools pysamstats
-pip install markov_clustering pandas
+`conda activate rvhaplo`<BR/>
+`conda install -c bioconda samtools pysamstats`<BR/>
+`pip install markov_clustering networkx pandas`<BR/>
 ####
