@@ -46,3 +46,19 @@ A viral haplotype reconstruction tool for long reads.
 ####
 
 ## Output Results
+```
+VirStrain - An RNA virus strain-level identification tool for short reads.
+
+Example: python VirStrain.py -i Test_Data/MT451123_1.fq -p Test_Data/MT451123_2.fq -d VirStrain_DB/SCOV2 -o MT451123_PE_Test
+
+required arguments:
+    -i, --input_reads             Input fastq data.
+    -d, --database_dir            Path of VirStrain database.
+
+optional arguments:
+    -h, --help                    Show help message and exit.
+    -o, --output_dir              The output directory. (Default: ./VirStrain_Out)
+    -p, --input_reads2            Input fastq data for PE reads
+    -c, --site_filter_cutoff      The cutoff of filtering one site when calculate the Vscore. (Default: 0.05)
+    -m, --high_mutation_virus     If the virus has high mutation rate (like HIV), use this option. (Default: off)
+```
