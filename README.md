@@ -21,7 +21,7 @@ A viral haplotype reconstruction tool for long reads.
 
 
 ## Usage
-`Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta`<BR/>
+`Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -o ./result`<BR/>
 
 ```
 required arguments:
