@@ -1,9 +1,8 @@
 #! /bin/bash
-### parameters
-# Necessary
+### required arguments
 file_sam=""
 file_ref=""
-# optional
+### optional arguments
 file_path='./'
 prefix="rvhaplo"
 error_rate=0.1
