@@ -35,15 +35,15 @@ function help_info() {
 	echo "    -r | --refernece:                 reference genome (fasta)"
 	echo ""
 	echo "    Options:"
-	echo "    -o  | --out:                      path where to output the results. (default:./)"
-	echo "    -p  | --prefix STR:               prefix of output file. (default: rvhaplo)"
+	echo "    -o  | --out:                      Path where to output the results. (default:./)"
+	echo "    -p  | --prefix STR:               Prefix of output file. (default: rvhaplo)"
 	echo "    -e  | --error_rate FLOAT:         Sequencing error rate. (default: 0.1)"
 	echo "    -s  | --signi_level FLOAT:        Significance level for binomial tests. (default: 0.05)"
-	echo "    -c  | --cond_pro FLOAT:           Minimum conditional probability for a SNV site. (default: 0.65)"
+	echo "    -c  | --cond_pro FLOAT:           A threshold for the maximum conditional probability of a SNV site. (default: 0.65)"
 	echo "    -n1 | --num_read_1 INT:           Minimum # of reads for marginal probability. (default:10)"
 	echo "    -n2 | --num_read_2 INT:           Minimum # of reads for conditional probability. (default: 5)"
 	echo "    -g  | --gap INT:                  Minimum length of gap between SNV sites for conditional probability. (default:15)"
-	echo "    -s  | --smallest_snv INT:         Smallest # of SNV sites for haplotype construction. (default:20)"
+	echo "    -s  | --smallest_snv INT:         Minimum # of SNV sites for haplotype construction. (default:20)"
 	echo "    -or | --overlap_read INT:         Minimum overlap between two reads in the read graph"
 	echo "    -wr | --weight_read FLOAT:        Minimum weights of edges in the read graph. (default:0.8)"
 	echo "    -m  | --mcl_inflaction FLOAT:     Inflaction of MCL algorithm. (default:2)"
@@ -55,7 +55,6 @@ function help_info() {
 	  
 	echo "    -h  | --help :                    Print help message."
 	echo ""
-	echo "     For further details of above parameters, please refer to https://github.com/dhcai21/RVHaplo"
 	exit 1
 }
 
