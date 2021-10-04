@@ -49,3 +49,14 @@ optional arguments:
     -a  | --abundance FLOAT :          Minimum abundance for filtering haplotypes (default: 0.005)
 ```
 ## Output Results
+All reconstruct haplotypes are summarized in a file "*_haplotypes.fasta". Below is an example of three haplotypes.
+```
+>haplotype_0_length_9181_abundance_0.50<BR/>
+GGTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGGTCTCTGGCTAACTAGGGAACC...<BR/>
+>haplotype_1_length_9178_abundance_0.30<BR/>
+GTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGAACCC...<BR/>
+>haplotype_2_length_9180_abundance_0.20<BR/>
+GGTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGGACC...<BR/>
+
+```
+
