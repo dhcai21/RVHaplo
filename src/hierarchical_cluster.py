@@ -235,14 +235,14 @@ if len(c_less)!=0:
     haplo_cluster = updata_haplotype(c_less, haplo_cluster, mat_cluster_haplotye)
     node_haplo = start_end(haplo_cluster)
 
-###  hierarchical_cluster
+###  hierarchical_clustering again
 haplo_cluster = hierarchical_clustering(haplo_cluster,seq_mat,snv_base,major_base,weight_cluster,depth)
 
 ###  unique reads in each cluster
 haplo_cluster = unique_reads(haplo_cluster)
 node_haplo = start_end(haplo_cluster)
 
-###  frequency estimation and filter extremely low-abundant strain
+###  abundance estimation and filter extremely low-abundant strain
 haplo_fre = []
 for i in node_haplo:
     haplo_fre.append(i[-1] / sum(node_haplo[:, -1]))
