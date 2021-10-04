@@ -389,7 +389,6 @@ python ./src/hierarchical_cluster.py $file_prefix"_graph.pickle" $lar_cluster $d
 	$ovlap_cluster $weight_cluster $abundance $file_prefix
 
 ## reconstruct haplotypes
-
 rm -rf $file_path"/clusters"
 mkdir $file_path"/clusters"
 
