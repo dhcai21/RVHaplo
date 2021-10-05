@@ -38,7 +38,7 @@ optional arguments:
     -p  | --prefix STR :               Prefix of output file. (default: rvhaplo)
     -e  | --error_rate FLOAT :         Sequencing error rate. (default: 0.1)
     -s  | --signi_level FLOAT :        Significance level for binomial tests. (default: 0.05)
-    -c  | --cond_pro FLOAT :           A threshold for the maximum conditional probability of a SNV site. (default: 0.65)
+    -c  | --cond_pro FLOAT :           A threshold of the maximum conditional probability for SNV sites. (default: 0.65)
     -f  | --fre_snv :                  The most dominant base' frequency at a to-be-verified site should >= fre_snv. (default: 0.80)    
     -n1 | --num_read_1 INT :           Minimum # of reads for calculating the conditional probability given one conditional site. (default: 10)
     -n2 | --num_read_2 INT :           Minimum # of reads for calculating the conditional probability given more than one conditional sites. (default: 5)
@@ -63,11 +63,11 @@ Using a small significance level value may improve the precision of detected SNV
 
 `-c  | --cond_pro`
 
-A threshold for the maximum conditional probability of a SNV site. If the maximum conditional probability of a SNV site is less than the threshold, this site will be recognized as a fake SNV site.
+A threshold of the maximum conditional probability for SNV sites. If the maximum conditional probability of an SNV site is less than the threshold, this site will be recognized as a fake SNV site.
 
 `-f  | --fre_snv`
 
-Usually sites containing fake SNVs caused by sequencing errors still have high frequencies of the most dominant bases. And those sites with small frequencies of the most dominant base are highly possible to contain real SNVs. Thus, we only verify part of potential sites obtained from the second binomial test to accelerate the verified process.
+Usually, sites containing fake SNVs caused by sequencing errors still have high frequencies of the most dominant bases. And those sites with small frequencies of the most dominant base are highly possible to contain real SNVs. Thus, we only verify part of potential sites obtained from the second binomial test to accelerate the verified process.
 
 `-n1 | --num_read_1`
 
@@ -75,7 +75,7 @@ Minimum number of reads for calculating the conditional probability given one co
 
 `-n2 | --num_read_2`
 
-Minimum number of reads for calculating the conditional probability given more than one conditional site. For example, P(A|B1,B2,B3,...). As the number of reads cover more SNVs sites will reduce, we allow a smaller number of reads for calculating the conditional probability given more contional sites compared to only given one conditional site.
+The minimum number of reads for calculating the conditional probability given more than one conditional site. For example, P(A|B1,B2,B3,...). As the number of reads covering more SNVs sites will reduce, we allow a smaller number of reads for calculating the conditional probability given more conditional sites compared to only given one conditional site.
 
 `-g  | --gap`
 
@@ -95,19 +95,19 @@ Minimum weights of edges in the read graph.
 
 '-m  | --mcl_inflaction'
 
-The parameter "Inflaction" of the graph clustering algorithm Markov Cluster (MCL). Usually using the default value 2 is enough here. For further details, please refer to https://micans.org/mcl/ and https://github.com/GuyAllard/markov_clustering.
+The parameter "Inflaction" of the graph clustering algorithm Markov Cluster (MCL). Usually, using the default value 2 is enough here. For further details, please refer to https://micans.org/mcl/ and https://github.com/GuyAllard/markov_clustering.
 
 `-l  | --lar_cluster`
 
-A threshold for seperating clusters into two groups based on sizes of clusters. Clusters with a larger threshold of size will lead to more accurate consensus sequences, but may miss some consensus sequences that are bridges between other consensus sequence. User can modify the threshold based on the input number of reads. We suggest using one of (20, 30, 40, 50). 
+A threshold for seperating clusters into two groups based on sizes of clusters. Clusters with a larger size threshold will lead to more accurate consensus sequences but may miss some consensus sequences that are bridges between other consensus sequences. Users can modify the threshold based on the input number of reads. We suggest using one of (20, 30, 40, 50). 
 
 `-oc | --overlap_cluster`
 
-A parameter related to the minimum overlap between consensus sequences of clusters. The minimum overlap between consensus sequences is calculated by min(0.1 * x, oc), where x is the number of detected SNV sites.
+A parameter related to the minimum overlap between consensus sequences of clusters. The minimum overlap between consensus sequences is min(0.1 * x, oc), where x is the number of detected SNV sites.
 
 `-d  | --depth`
 
-Depth limitation for consensus sequences generated from clusters. The total number of bases (A,C,G,T) at a site should be larger than the threshold. Otherwise, ignore this site (use '-').
+Depth limitation for consensus sequences generated from clusters. The total number of bases (A, C, G, T) at a site should be larger than the threshold. Otherwise, ignore this site (use '-').
 
 `-wc | --weight_cluster`
 
