@@ -17,6 +17,7 @@ weight_read = float(sys.argv[8])
 ovlap_read = int(sys.argv[9])
 mcl_inflation = float(sys.argv[10])
 file_prefix = sys.argv[11]
+fre_most_base = float(sys.argv[12])
 
 
 bamfile = pysam.AlignmentFile(file_in)
@@ -90,9 +91,9 @@ def rank_nucl(Coun):
 
 nucl_fre = np.array(rank_nucl(Coun))
 
-###   find out the candicate site to be verified >=0.8  
+###   find out the candicate site to be verified >=fre_most_base  
 to_be_verified_sites = np.array([i for i in range(num_snv)])
-to_be_verified_sites = to_be_verified_sites[nucl_fre[:,-1]>=0.8]
+to_be_verified_sites = to_be_verified_sites[nucl_fre[:,-1]>=fre_most_base]
 
 ###  calculate the 1-order  probability for the SNV at each candicate site
 subsitution_rate = {i:nucl_fre[i,2]/sum(nucl_fre[i,2:]) for i in to_be_verified_sites}
