@@ -82,19 +82,19 @@ Minimum weights of edges in the read graph.
 ##### -m  | --mcl_inflaction
 The parameter "Inflaction" of the graph clustering algorithm Markov Cluster (MCL). Usually using the default value 2 is enough here. For further details, please refer to https://micans.org/mcl/ and https://github.com/GuyAllard/markov_clustering.
 
-##### -l  | --lar_cluster
+`-l  | --lar_cluster`
 A threshold for seperating clusters into two groups based on sizes of clusters. Clusters with a larger threshold of size will lead to more accurate consensus sequences, but may miss some consensus sequences that are bridges between other consensus sequence. User can modify the threshold based on the input number of reads. We suggest using one of (20, 30, 40, 50). 
 
-##### -oc | --overlap_cluster
+`-oc | --overlap_cluster`
 A parameter related to the minimum overlap between consensus sequences of clusters. The minimum overlap between consensus sequences is calculated by min(0.1 * #, oc), where # is the number of detected SNV sites.
 
-##### -d  | --depth
+`-d  | --depth`
 Depth limitation for consensus sequences generated from clusters. The total number of bases (A,C,G,T) at a site should be larger than the threshold. Otherwise, ignore this site (use '-').
 
-##### -wc | --weight_cluster
+`-wc | --weight_cluster`
 Minimum weights between clusters in the hierarchical clustering.
 
-##### -a  | --abundance
+`-a  | --abundance`
 A threshold for filtering low-abundance haplotypes.
 
 
