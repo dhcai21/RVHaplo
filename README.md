@@ -49,9 +49,9 @@ optional arguments:
     -wc | --weight_cluster FLOAT :     Minimum weights between clusters in the hierarchical clustering (default: 0.8)
     -a  | --abundance FLOAT :          Minimum abundance for filtering haplotypes (default: 0.005)
 ```
-##### -e  | --error_rate
+`-e  | --error_rate`
 The sequencing error rate here can be roughly estimated. It will not significantly change the result for the bias between it and the ground truth. And we use 0.1 as the general sequencing error rate for TGS data.
-#### `-s  | --signi_level`
+`-s  | --signi_level`
 Using a small significance level value may improve the precision of detected SNV sites obtained from binomial tests. But the small significance level value may reduce recall. Thus, we suggest using the default value 0.05.
 
 
