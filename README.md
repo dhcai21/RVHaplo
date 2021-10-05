@@ -49,34 +49,44 @@ optional arguments:
     -wc | --weight_cluster FLOAT :     Minimum weights between clusters in the hierarchical clustering (default: 0.8)
     -a  | --abundance FLOAT :          A threshold for filtering low-abundance haplotypes. (default: 0.005)
 ```
-##### -e  | --error_rate
+`-e  | --error_rate`
+
 The sequencing error rate here can be roughly estimated. It will not significantly change the result for the bias between it and the ground truth. And we use 0.1 as the general sequencing error rate for TGS data.
 
-##### -s  | --signi_level
+`-s  | --signi_level`
+
 Using a small significance level value may improve the precision of detected SNV sites obtained from binomial tests. But the small significance level value may reduce recall. Thus, we suggest using the default value 0.05.
 
-##### -c  | --cond_pro
+`-c  | --cond_pro`
+
 A threshold for the maximum conditional probability of a SNV site. If the maximum conditional probability of a SNV site is less than the threshold, this site will be recognized as a fake SNV site.
 
-##### -f  | --fre_snv
+`-f  | --fre_snv`
+
 Usually sites containing fake SNVs caused by sequencing errors still have high frequencies of the most dominant bases. And those sites with small frequencies of the most dominant base are highly possible to contain real SNVs. Thus, we only verify part of potential sites obtained from the second binomial test to accelerate the verified process.
 
-##### -n1 | --num_read_1
+`-n1 | --num_read_1`
+
 Minimum number of reads for calculating the conditional probability given one conditional site. For example, P(A|B).
 
-##### -n2 | --num_read_2
+`-n2 | --num_read_2`
+
 Minimum number of reads for calculating the conditional probability given more than one conditional site. For example, P(A|B1,B2,B3,...). As the number of reads cover more SNVs sites will reduce, we allow a smaller number of reads for calculating the conditional probability given more contional sites compared to only given one conditional site.
 
-##### -g  | --gap
+`-g  | --gap`
+
 Because sites in close proximity tend to weaken the independence of sequencing errors, the distance (gap) between the target site and the given sites should be above a threshold.
 
-##### -s  | --smallest_snv
+`-s  | --smallest_snv`
+
 As a small number of detected SNV sites indicates that only one strain in the sample is highly possible, the haplotype reconstruction process will stop and only output the detected SNV sites.
 
-#####  -or | --overlap_read
+`-or | --overlap_read`
+
 Minimum length of overlap for creating edges between two read in the read graph.
 
-##### -wr | --weight_read
+`-wr | --weight_read`
+
 Minimum weights of edges in the read graph.
 
 '-m  | --mcl_inflaction'
