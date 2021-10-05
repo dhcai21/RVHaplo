@@ -93,7 +93,7 @@ Minimum length of overlap for creating edges between two read in the read graph.
 
 Minimum weights of edges in the read graph.
 
-'-m  | --mcl_inflaction'
+`-m  | --mcl_inflaction`
 
 The parameter "Inflaction" of the graph clustering algorithm Markov Cluster (MCL). Usually, using the default value 2 is enough here. For further details, please refer to https://micans.org/mcl/ and https://github.com/GuyAllard/markov_clustering.
 
