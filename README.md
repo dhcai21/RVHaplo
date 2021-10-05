@@ -21,7 +21,7 @@ A viral haplotype reconstruction tool for long reads.
 
 
 ## Usage
-#### Initialize
+#### Initialization
 `cd RVHaplo-main`<BR/>
 `chmod +x rvhaplo.sh`
 #### Command
