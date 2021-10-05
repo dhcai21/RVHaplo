@@ -39,7 +39,7 @@ function help_info() {
 	echo "    -p  | --prefix STR:               Prefix of output file. (default: rvhaplo)"
 	echo "    -e  | --error_rate FLOAT:         Sequencing error rate. (default: 0.1)"
 	echo "    -s  | --signi_level FLOAT:        Significance level for binomial tests. (default: 0.05)"
-	echo "    -c  | --cond_pro FLOAT:           A threshold for the maximum conditional probability of a SNV site. (default: 0.65)"
+	echo "    -c  | --cond_pro FLOAT:           A threshold of the maximum conditional probability for SNV sites. (default: 0.65)"
 	echo "    -f  | --fre_snv FLOAT:            The most dominant base' frequency at a to-be-verified site should >= fre_snv. (default: 0.80)"
 	echo "    -n1 | --num_read_1 INT:           Minimum # of reads for calculating the conditional probability given one conditional site. (default:10)"
 	echo "    -n2 | --num_read_2 INT:           Minimum # of reads for calculating the conditional probability given more than one conditional sites. (default: 5)"
