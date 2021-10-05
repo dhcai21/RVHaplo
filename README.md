@@ -23,7 +23,7 @@ A viral haplotype reconstruction tool for long reads.
 ## Usage
 #### Initialize
 `cd RVHaplo-main`<BR/>
-`chmod +x rvhapplo.sh`
+`chmod +x rvhaplo.sh`
 #### Command
 `Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -o ./result`<BR/>
 
