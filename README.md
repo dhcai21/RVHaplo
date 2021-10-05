@@ -35,19 +35,19 @@ optional arguments:
     -e  | --error_rate FLOAT :         Sequencing error rate. (default: 0.1)
     -s  | --signi_level FLOAT :        Significance level for binomial tests. (default: 0.05)
     -c  | --cond_pro FLOAT :           A threshold for the maximum conditional probability of a SNV site. (default: 0.65)
-    -f  | --fre_snv :                  The most dominant base' frequency at to-be-verified sites should >= fre_snv. (default: 0.80)    
-    -n1 | --num_read_1 INT :           Minimum # of reads for marginal probability. (default: 10)
-    -n2 | --num_read_2 INT :           Minimum # of reads for conditional probability. (default: 5)
-    -g  | --gap INT :                  Minimum length of gap between SNV sites for conditional probability. (default: 15)
+    -f  | --fre_snv :                  The most dominant base' frequency at a to-be-verified site should >= fre_snv. (default: 0.80)    
+    -n1 | --num_read_1 INT :           Minimum # of reads for calculating the conditional probability given one conditional site. (default: 10)
+    -n2 | --num_read_2 INT :           Minimum # of reads for calculating the conditional probability given more than one conditional sites. (default: 5)
+    -g  | --gap INT :                  Minimum length of gap between SNV sites for calculating the conditional probability. (default: 15)
     -s  | --smallest_snv INT :         Minimum # of SNV sites for haplotype construction. (default: 20)
-    -or | --overlap_read INT :         Minimum length of overlap between two reads in the read graph. (default: 5)
+    -or | --overlap_read INT :         Minimum length of overlap for creating edges between two read in the read graph. (default: 5)
     -wr | --weight_read FLOAT :        Minimum weights of edges in the read graph. (default: 0.8)
     -m  | --mcl_inflaction FLOAT :     Inflaction of MCL algorithm. (default:2)
-    -l  | --lar_cluster INT :          A threshold to seperate clusters into two groups by sizes of clusters. (default: 50)
-    -oc | --overlap_cluster INT :      A parameter related to the minimum overlap between consensus sequences. (default: 10)
+    -l  | --lar_cluster INT :          A threshold for seperating clusters into two groups based on sizes of clusters. (default: 50)
+    -oc | --overlap_cluster INT :      A parameter related to the minimum overlap between consensus sequences of clusters. (default: 10)
     -d  | --depth INT :                Depth limitation for consensus sequences generated from clusters. (default: 5)
     -wc | --weight_cluster FLOAT :     Minimum weights between clusters in the hierarchical clustering (default: 0.8)
-    -a  | --abundance FLOAT :          Minimum abundance for filtering haplotypes (default: 0.005)
+    -a  | --abundance FLOAT :          A threshold for filtering low-abundance haplotypes. (default: 0.005)
 ```
 ##### -e  | --error_rate
 The sequencing error rate here can be roughly estimated. It will not significantly change the result for the bias between it and the ground truth. And we use 0.1 as the general sequencing error rate for TGS data.
@@ -55,6 +55,47 @@ The sequencing error rate here can be roughly estimated. It will not significant
 ##### -s  | --signi_level
 Using a small significance level value may improve the precision of detected SNV sites obtained from binomial tests. But the small significance level value may reduce recall. Thus, we suggest using the default value 0.05.
 
+##### -c  | --cond_pro
+A threshold for the maximum conditional probability of a SNV site. If the maximum conditional probability of a SNV site is less than the threshold, this site will be recognized as a fake SNV site.
+
+##### -f  | --fre_snv
+Usually sites containing fake SNVs caused by sequencing errors still have high frequencies of the most dominant bases. And those sites with small frequencies of the most dominant base are highly possible to contain real SNVs. Thus, we only verify part of potential sites obtained from the second binomial test to accelerate the verified process.
+
+##### -n1 | --num_read_1
+Minimum number of reads for calculating the conditional probability given one conditional site. For example, P(A|B).
+
+##### -n2 | --num_read_2
+Minimum number of reads for calculating the conditional probability given more than one conditional site. For example, P(A|B1,B2,B3,...). As the number of reads cover more SNVs sites will reduce, we allow a smaller number of reads for calculating the conditional probability given more contional sites compared to only given one conditional site.
+
+##### -g  | --gap
+Because sites in close proximity tend to weaken the independence of sequencing errors, the distance (gap) between the target site and the given sites should be above a threshold.
+
+##### -s  | --smallest_snv
+As a small number of detected SNV sites indicates that only one strain in the sample is highly possible, the haplotype reconstruction process will stop and only output the detected SNV sites.
+
+#####  -or | --overlap_read
+Minimum length of overlap for creating edges between two read in the read graph.
+
+##### -wr | --weight_read
+Minimum weights of edges in the read graph.
+
+##### -m  | --mcl_inflaction
+The parameter "Inflaction" of the graph clustering algorithm Markov Cluster (MCL). Usually using the default value 2 is enough here. For further details, please refer to https://micans.org/mcl/ and https://github.com/GuyAllard/markov_clustering.
+
+##### -l  | --lar_cluster
+A threshold for seperating clusters into two groups based on sizes of clusters. Clusters with a larger threshold of size will lead to more accurate consensus sequences, but may miss some consensus sequences that are bridges between other consensus sequence. User can modify the threshold based on the input number of reads. We suggest using one of (20, 30, 40, 50). 
+
+##### -oc | --overlap_cluster
+A parameter related to the minimum overlap between consensus sequences of clusters. The minimum overlap between consensus sequences is calculated by min(0.1 * #, oc), where # is the number of detected SNV sites.
+
+##### -d  | --depth
+Depth limitation for consensus sequences generated from clusters. The total number of bases (A,C,G,T) at a site should be larger than the threshold. Otherwise, ignore this site (use '-').
+
+##### -wc | --weight_cluster
+Minimum weights between clusters in the hierarchical clustering.
+
+##### -a  | --abundance
+A threshold for filtering low-abundance haplotypes.
 
 
 
