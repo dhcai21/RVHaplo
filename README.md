@@ -25,8 +25,8 @@ A viral haplotype reconstruction tool for long reads.
 
 ```
 required arguments:
-    -i | --input:                     alignment file (sam)
-    -r | --refernece:                 reference genome (fasta)
+    -i  | --input:                     alignment file (sam)
+    -r  | --refernece:                 reference genome (fasta)
 
 optional arguments:
     -h  | --help :                     Print help message.
