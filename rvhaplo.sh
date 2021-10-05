@@ -53,8 +53,8 @@ function help_info() {
 	echo "    -d  | --depth INT:                Depth limitation for consensus sequences generated from clusters. (default:5) "
 	echo "    -wc | --weight_cluster FLOAT:     Minimum weights between clusters in the hierarchical clustering. (default: 0.8)"
 	echo "    -a  | --abundance FLOAT:          A threshold for filtering low-abundance haplotypes. (default: 0.005)"
-	
 	echo "    -h  | --help :                    Print help message."
+	echo ""
 	echo "    For further details of above arguments, please refer to https://github.com/dhcai21/RVHaplo   "
 	echo ""
 	exit 1
