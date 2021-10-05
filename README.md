@@ -35,6 +35,7 @@ optional arguments:
     -e  | --error_rate FLOAT :         Sequencing error rate. (default: 0.1)
     -s  | --signi_level FLOAT :        Significance level for binomial tests. (default: 0.05)
     -c  | --cond_pro FLOAT :           A threshold for the maximum conditional probability of a SNV site. (default: 0.65)
+    -f  | --fre_snv :                  The most dominant base' frequency at to-be-verified sites should $\geq$ fre_snv. (default: 0.80)    
     -n1 | --num_read_1 INT :           Minimum # of reads for marginal probability. (default: 10)
     -n2 | --num_read_2 INT :           Minimum # of reads for conditional probability. (default: 5)
     -g  | --gap INT :                  Minimum length of gap between SNV sites for conditional probability. (default: 15)
