@@ -51,6 +51,7 @@ optional arguments:
 ```
 `-e  | --error_rate`
 The sequencing error rate here can be roughly estimated. It will not significantly change the result for the bias between it and the ground truth. And we use 0.1 as the general sequencing error rate for TGS data.
+
 `-s  | --signi_level`
 Using a small significance level value may improve the precision of detected SNV sites obtained from binomial tests. But the small significance level value may reduce recall. Thus, we suggest using the default value 0.05.
 
