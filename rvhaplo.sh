@@ -8,6 +8,7 @@ prefix="rvhaplo"
 error_rate=0.1
 signi_level=0.05
 cond_pro=0.65
+fre_snv=0.8
 num_read_1=10
 num_read_2=5
 gap=15
@@ -39,18 +40,19 @@ function help_info() {
 	echo "    -e  | --error_rate FLOAT:         Sequencing error rate. (default: 0.1)"
 	echo "    -s  | --signi_level FLOAT:        Significance level for binomial tests. (default: 0.05)"
 	echo "    -c  | --cond_pro FLOAT:           A threshold for the maximum conditional probability of a SNV site. (default: 0.65)"
-	echo "    -n1 | --num_read_1 INT:           Minimum # of reads for marginal probability. (default:10)"
-	echo "    -n2 | --num_read_2 INT:           Minimum # of reads for conditional probability. (default: 5)"
-	echo "    -g  | --gap INT:                  Minimum length of gap between SNV sites for conditional probability. (default:15)"
+	echo "    -f  | --fre_snv FLOAT:            The most dominant base' frequency at a to-be-verified site should >= fre_snv. (default: 0.80)"
+	echo "    -n1 | --num_read_1 INT:           Minimum # of reads for calculating the conditional probability given one conditional site. (default:10)"
+	echo "    -n2 | --num_read_2 INT:           Minimum # of reads for calculating the conditional probability given more than one conditional sites. (default: 5)"
+	echo "    -g  | --gap INT:                  Minimum length of gap between SNV sites for calculating the conditional probability. (default:15)"
 	echo "    -s  | --smallest_snv INT:         Minimum # of SNV sites for haplotype construction. (default:20)"
-	echo "    -or | --overlap_read INT:         Minimum overlap between two reads in the read graph"
+	echo "    -or | --overlap_read INT:         Minimum length of overlap for creating edges between two read in the read graph. (default: 5)"
 	echo "    -wr | --weight_read FLOAT:        Minimum weights of edges in the read graph. (default:0.8)"
 	echo "    -m  | --mcl_inflaction FLOAT:     Inflaction of MCL algorithm. (default:2)"
-	echo "    -l  | --lar_cluster INT:          A threshold to seperate clusters into two groups by sizes of clusters. (default:50)"
+	echo "    -l  | --lar_cluster INT:          A threshold for seperating clusters into two groups based on sizes of clusters. (default:50)"
 	echo "    -oc | --overlap_cluster INT:      A parameter related to the minimum overlap between consensus sequences. (default:10) "
 	echo "    -d  | --depth INT:                Depth limitation for consensus sequences generated from clusters. (default:5) "
-	echo "    -wc | --weight_cluster FLOAT:     Minimum weights between clusters in the hierarchical clustering (default: 0.8)"
-	echo "    -a  | --abundance FLOAT:          Minimum abundance for filtering haplotypes (default: 0.005)"
+	echo "    -wc | --weight_cluster FLOAT:     Minimum weights between clusters in the hierarchical clustering. (default: 0.8)"
+	echo "    -a  | --abundance FLOAT:          A threshold for filtering low-abundance haplotypes. (default: 0.005)"
 	  
 	echo "    -h  | --help :                    Print help message."
 	echo ""
@@ -163,6 +165,18 @@ while [[ "$1" != "" ]]; do
 			;;
 		*)
 			cond_pro="$2"
+			shift 2
+			;;
+		esac
+		;;
+		-f | --fre_snv )  ### determine the set of to-be-verified SNV sites
+		case "$2" in 
+		"" )
+			echo "Error: no input for $1"
+			exit 1
+			;;
+		*)
+			fre_snv="$2"
 			shift 2
 			;;
 		esac
@@ -375,7 +389,7 @@ fi
 ## maximum conditional probability and apply MCL to read graph 
 echo "Graph clustering"
 python ./src/read_graph_mcl.py $file_bam_sorted $file_snv $cond_pro $smallest_snv $num_read_1 $num_read_2 $gap \
-	$weight_read $ovlap_read $mcl_inflation $file_prefix
+	$weight_read $ovlap_read $mcl_inflation $file_prefix $fre_snv
 
 ## judge number of detected SNV sites
 size="$(wc -l <"$file_snv")"
