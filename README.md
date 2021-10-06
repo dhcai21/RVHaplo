@@ -25,7 +25,7 @@ A viral haplotype reconstruction tool for long reads.
 `cd RVHaplo-main`<BR/>
 `chmod +x rvhaplo.sh`
 #### Command
-`Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -o ./result`<BR/>
+`Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta`<BR/>
 
 ```
 required arguments:
