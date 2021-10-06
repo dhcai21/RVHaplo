@@ -185,6 +185,7 @@ def verify_snv_site(to_be_verified_sites,seq_snv_flag,seq_major_flag,v_min_1=10,
 snv_max_pro = verify_snv_site(to_be_verified_sites,seq_snv_flag,seq_major_flag,num_read_1,num_read_2,gap)
 snv_max_pro = np.array(snv_max_pro)
 fake_snv_sites = to_be_verified_sites[snv_max_pro<cond_pro]
+del snv_max_pro
 final_snv = [i for i in range(num_snv) if i not in fake_snv_sites]
 
 ###  update snv_sites file
@@ -271,6 +272,7 @@ Qend = Qend[index_r]
 seq_mat = seq_mat[index_r]
 n = np.array(G.nodes())
 matrix = nx.to_scipy_sparse_matrix(G)
+del G
 
 ### MCL clustering
 result = mc.run_mcl(matrix,inflation=mcl_inflation)
@@ -281,5 +283,4 @@ f_pic = open(file_prefix+'_graph.pickle','wb')
 pickle.dump(data,f_pic,protocol=pickle.HIGHEST_PROTOCOL)
 f_pic.close()
 del data
-del G
 exit()
