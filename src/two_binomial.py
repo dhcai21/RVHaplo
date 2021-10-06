@@ -41,7 +41,7 @@ tol = np.array(total)/sum(total)
 for i in range(len(tol)):
     weight[i,:] = weight[i,:]*tol[i]
 ref_init = np.sum(weight,0)
-beta = ref_init[i]
+beta = ref_init[1]
 
 ### second binomial test
 SNV_final = []
