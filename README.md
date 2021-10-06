@@ -34,7 +34,7 @@ required arguments:
 
 optional arguments:
     -h  | --help :                     Print help message.
-    -o  | --out :                      Path where to output the results. (default: ./)
+    -o  | --out :                      Path where to output the results. (default: ./result)
     -p  | --prefix STR :               Prefix of output file. (default: rvhaplo)
     -e  | --error_rate FLOAT :         Sequencing error rate. (default: 0.1)
     -s  | --signi_level FLOAT :        Significance level for binomial tests. (default: 0.05)
