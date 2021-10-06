@@ -231,7 +231,7 @@ if len(c_less)!=0:
         seq_less.append([temp1, temp2])
         node_se_less.append(temp3)
     node_se_less = np.array(node_se_less)
-    mat_cluster_haplotye = weight_cluster_haplotype(seq_less, seq_haplo, node_se_less, node_haplo_se)
+    mat_cluster_haplotye = weight_cluster_haplotype(seq_less, seq_haplo, node_se_less, node_haplo_se, weight_cluster)
     haplo_cluster = updata_haplotype(c_less, haplo_cluster, mat_cluster_haplotye)
     node_haplo = start_end(haplo_cluster)
 
