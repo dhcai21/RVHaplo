@@ -129,3 +129,6 @@ GTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGAACCC...
 >haplotype_2_length_9180_abundance_0.20
 GGTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGGACC...
 ```
+
+#### Clusters of Reads
+For the corresponding read clusters of haplotypes, the alignment file of each cluster can be found in the folder "clusters".
