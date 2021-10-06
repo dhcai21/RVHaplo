@@ -3,7 +3,7 @@
 file_sam=""
 file_ref=""
 ### optional arguments
-file_path='./'
+file_path='./result'
 prefix="rvhaplo"
 error_rate=0.1
 signi_level=0.05
@@ -35,7 +35,7 @@ function help_info() {
 	echo "    -r | --refernece:                 reference genome (fasta)"
 	echo ""
 	echo "    Options:"
-	echo "    -o  | --out:                      Path where to output the results. (default:./)"
+	echo "    -o  | --out:                      Path where to output the results. (default:./result)"
 	echo "    -p  | --prefix STR:               Prefix of output file. (default: rvhaplo)"
 	echo "    -e  | --error_rate FLOAT:         Sequencing error rate. (default: 0.1)"
 	echo "    -s  | --signi_level FLOAT:        Significance level for binomial tests. (default: 0.05)"
@@ -364,17 +364,23 @@ fi
 
 ##########  count nucleotide occurrence  ##########
 echo "count nucleotide occurrence"
+if [[ "$file_path" != "." ]];then
+	rm -rf $file_path
+	mkdir $file_path
+fi
+rm -rf $file_path"/alignment"
+mkdir $file_path"/alignment"
 file_len=`expr ${#file_sam}-4`
-unique_sam=${file_sam:0:$file_len}"_unique.sam"
+unique_sam=$file_path"/alignment/"$prefix".sam"
 samtools view -h -F 0x900 $file_sam > $unique_sam
-file_bam=${file_sam:0:$file_len}".bam"
+file_bam=$file_path"/alignment/"$prefix".bam"
 samtools view -b -S $unique_sam > $file_bam
-file_bam_sorted=${file_sam:0:$file_len}"_sorted.bam"
+rm $unique_sam
+file_bam_sorted=$file_path"/alignment/"$prefix"_sorted.bam"
 samtools sort $file_bam -o $file_bam_sorted
 samtools index $file_bam_sorted
 file_acgt=$file_prefix"_acgt.txt"
 pysamstats -f $file_ref --type variation_strand $file_bam_sorted > $file_acgt
-
 
 ########## two binomial tests  ##########
 echo "SNV detection"
@@ -412,6 +418,8 @@ echo "haplotypes reconstruction"
 python ./src/out_haplotypes.py $file_prefix"_final.pickle" $file_bam $file_path $file_acgt $file_ref \
 	$file_prefix"_haplotypes.fasta"
 
+rm $file_prefix"_graph.pickle"
+rm $file_prefix"_final.pickle"
 echo "complete reconstructing haplotypes"
 
 exit 1
