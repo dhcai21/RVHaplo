@@ -132,3 +132,7 @@ GGTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGGACC...
 
 #### Clusters of Reads
 For the corresponding read clusters of haplotypes, the alignment file of each cluster can be found in the folder "clusters".
+
+
+## Simulation data
+Some simulation datasets can be downloaded from https://portland-my.sharepoint.com/:f:/g/personal/dhcai2-c_my_cityu_edu_hk/Ek_vAq_2ORBGrqVBKMnijTwBXOuiQezZg18noz741ToFsA?e=mlX1er.
