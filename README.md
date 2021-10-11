@@ -138,8 +138,12 @@ For the corresponding read clusters of haplotypes, the alignment file of each cl
 Simulation datasets can be downloaded from https://portland-my.sharepoint.com/:f:/g/personal/dhcai2-c_my_cityu_edu_hk/Ek_vAq_2ORBGrqVBKMnijTwBXOuiQezZg18noz741ToFsA?e=mlX1er.
 
 For the 3-haplotype and 2-haplotype datasets, each sample has a specific haplotypes' abundance distribution:
+
 sample0: (56%,27%,17%) / (75%,25%)
+
 sample1: (65%,31%, 4%) / (96%, 4%)
+
 sample2: (65%,33%, 2%) / (98%, 2%)
+
 sample3: (64%,35%, 1%) / (99%, 1%)
 
