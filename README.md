@@ -135,4 +135,4 @@ For the corresponding read clusters of haplotypes, the alignment file of each cl
 
 
 ## Simulation data
-Some simulation datasets (hard case) can be downloaded from https://portland-my.sharepoint.com/:f:/g/personal/dhcai2-c_my_cityu_edu_hk/Ek_vAq_2ORBGrqVBKMnijTwBXOuiQezZg18noz741ToFsA?e=mlX1er.
+Some simulation datasets can be downloaded from https://portland-my.sharepoint.com/:f:/g/personal/dhcai2-c_my_cityu_edu_hk/Ek_vAq_2ORBGrqVBKMnijTwBXOuiQezZg18noz741ToFsA?e=mlX1er.
