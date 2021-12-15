@@ -389,6 +389,7 @@ python ./src/two_binomial.py $error_rate $signi_level $file_acgt $file_snv
 
 ## judge number of detected SNV sites
 size="$(wc -l <"$file_snv")"
+size="${size:0-1:1}"
 if [[ $size != "0" ]];then
 	exit 1
 fi
@@ -400,6 +401,7 @@ python ./src/read_graph_mcl.py $file_bam_sorted $file_snv $cond_pro $smallest_sn
 
 ## judge number of detected SNV sites
 size="$(wc -l <"$file_snv")"
+size="${size:0-1:1}"
 if [[ $size != "0" ]];then
 	exit 1
 fi
