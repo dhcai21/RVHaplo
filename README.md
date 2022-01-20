@@ -81,7 +81,7 @@ The minimum number of reads for calculating the conditional probability given mo
 
 Because sites in close proximity tend to weaken the independence of sequencing errors, the distance (gap) between the target site and the given sites should be above a threshold.
 
-`-s  | --smallest_snv`
+`-ss | --smallest_snv`
 
 As a small number of detected SNV sites indicates that only one strain in the sample is highly possible, the haplotype reconstruction process will stop and only output the detected SNV sites.
 
