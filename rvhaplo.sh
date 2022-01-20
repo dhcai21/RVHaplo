@@ -395,7 +395,7 @@ if [[ $size != "0" ]];then
 fi
 
 ## maximum conditional probability and apply MCL to read graph 
-echo "Graph clustering"
+echo "Maximum conditional probability and Graph clustering"
 python ./src/read_graph_mcl.py $file_bam_sorted $file_snv $cond_pro $smallest_snv $num_read_1 $num_read_2 $gap \
 	$weight_read $ovlap_read $mcl_inflation $file_prefix $fre_snv
 
