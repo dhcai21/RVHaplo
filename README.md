@@ -136,3 +136,8 @@ For the corresponding read clusters of haplotypes, the alignment file of each cl
 
 ## Simulation data
 Simulation datasets can be downloaded from https://drive.google.com/drive/folders/16azUqV6thGJyBThR0OaGfNgjXYhD_lEE?usp=sharing
+
+## Tested data
+The tested data can be downloaded from https://drive.google.com/drive/folders/1A4I722MO4Ujnvu_B3pugq6v6N4t1koHd?usp=sharing
+`./rvhaplo.sh -i test.sam -r reference.fasta`<BR/>
+
