@@ -139,5 +139,6 @@ Simulation datasets can be downloaded from https://drive.google.com/drive/folder
 
 ## Tested data
 The tested data can be downloaded from https://drive.google.com/drive/folders/1A4I722MO4Ujnvu_B3pugq6v6N4t1koHd?usp=sharing
+
 `./rvhaplo.sh -i test.sam -r reference.fasta`<BR/>
 
