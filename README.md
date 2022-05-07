@@ -133,6 +133,13 @@ GGTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGGACC...
 #### Clusters of Reads
 For the corresponding read clusters of haplotypes, the alignment file of each cluster can be found in the folder "clusters".
 
+#### SNV sites
+You can find out the SNV sites (1-index on the reference genome) in the file "*_SNV.txt".
+
+The base (A, C, G, T, etc.) counts from the alignments between reads and the reference genome can be found in the file "*_acgt.txt".
+
+If you want to output the SNV sites only without running the haplotype reconstruction part, use the command "-os 1" or "--only_snv 1".
+
 
 ## Simulation data
 Simulation datasets can be downloaded from https://drive.google.com/drive/folders/16azUqV6thGJyBThR0OaGfNgjXYhD_lEE?usp=sharing
