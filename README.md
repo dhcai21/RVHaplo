@@ -85,6 +85,10 @@ Because sites in close proximity tend to weaken the independence of sequencing e
 
 As a small number of detected SNV sites indicates that only one strain in the sample is highly possible, the haplotype reconstruction process will stop and only output the detected SNV sites.
 
+`-os | --only_snv`
+
+Only output the SNV sites without running the haplotype reconstruction part.
+
 `-or | --overlap_read`
 
 Minimum length of overlap for creating edges between two read in the read graph.
@@ -138,8 +142,9 @@ You can find out the SNV sites (1-index on the reference genome) in the file "*_
 
 The base (A, C, G, T, etc.) counts from the alignments between reads and the reference genome can be found in the file "*_acgt.txt".
 
+`
 If you want to output the SNV sites only without running the haplotype reconstruction part, use the command "-os 1" or "--only_snv 1".
-
+`
 
 ## Simulation data
 Simulation datasets can be downloaded from https://drive.google.com/drive/folders/16azUqV6thGJyBThR0OaGfNgjXYhD_lEE?usp=sharing
