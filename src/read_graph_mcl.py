@@ -18,6 +18,7 @@ ovlap_read = int(sys.argv[9])
 mcl_inflation = float(sys.argv[10])
 file_prefix = sys.argv[11]
 fre_most_base = float(sys.argv[12])
+only_snv = sys.argv[13]
 
 
 bamfile = pysam.AlignmentFile(file_in)
@@ -188,6 +189,9 @@ if len(final_snv)<smallest_snv:
     f.write("\nZero SNV sites indicates one haplotype\nexit")
     f.close()
     exit()
+
+if only_snv != '0':
+	exit()
 
 ###  update some variables
 Coun = Coun[final_snv]
