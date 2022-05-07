@@ -27,6 +27,8 @@ A viral haplotype reconstruction tool for long reads.
 #### Command
 `Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta`<BR/>
 
+`If you want to output the SNV sites only:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -os 1`<BR/>
+
 ```
 required arguments:
     -i  | --input:                     alignment file (sam)
