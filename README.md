@@ -44,6 +44,7 @@ optional arguments:
     -n2 | --num_read_2 INT :           Minimum # of reads for calculating the conditional probability given more than one conditional sites. (default: 5)
     -g  | --gap INT :                  Minimum length of gap between SNV sites for calculating the conditional probability. (default: 15)
     -ss | --smallest_snv INT :         Minimum # of SNV sites for haplotype construction. (default: 20)
+    -os | --only_snv (0 or 1) :        Only output the SNV sites without running the haplotype reconstruction part. (default: 0)
     -or | --overlap_read INT :         Minimum length of overlap for creating edges between two read in the read graph. (default: 5)
     -wr | --weight_read FLOAT :        Minimum weights of edges in the read graph. (default: 0.8)
     -m  | --mcl_inflaction FLOAT :     Inflaction of MCL algorithm. (default:2)
