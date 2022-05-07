@@ -419,7 +419,7 @@ if [[ $size != "0" ]];then
 	exit 1
 fi
 
-if [[ $only_snv != "0" ]];then
+if [[ $only_snv != 0 ]];then
 	exit 1
 fi
 
