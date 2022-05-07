@@ -13,6 +13,7 @@ num_read_1=10
 num_read_2=5
 gap=15
 smallest_snv=20
+only_snv=0
 ovlap_read=5
 weight_read=0.8
 mcl_inflation=2
@@ -45,6 +46,7 @@ function help_info() {
 	echo "    -n2 | --num_read_2 INT:           Minimum # of reads for calculating the conditional probability given more than one conditional sites. (default: 5)"
 	echo "    -g  | --gap INT:                  Minimum length of gap between SNV sites for calculating the conditional probability. (default:15)"
 	echo "    -ss | --smallest_snv INT:         Minimum # of SNV sites for haplotype construction. (default:20)"
+	echo "    -os | --only_snv (0 or 1) :       Only output the SNV sites without running the haplotype reconstruction part. (default: 0)"
 	echo "    -or | --overlap_read INT:         Minimum length of overlap for creating edges between two read in the read graph. (default: 5)"
 	echo "    -wr | --weight_read FLOAT:        Minimum weights of edges in the read graph. (default:0.8)"
 	echo "    -m  | --mcl_inflaction FLOAT:     Inflaction of MCL algorithm. (default:2)"
@@ -230,6 +232,18 @@ while [[ "$1" != "" ]]; do
 			;;
 		esac
 		;;
+		-os | --only_snv )  ### Only output the SNV sites without running the haplotype reconstruction part.
+		case "$2" in 
+		"" )
+			echo "Error: no input for $1"
+			exit 1
+			;;
+		*)
+			only_snv="$2"
+			shift 2
+			;;
+		esac
+		;;
 		-or | --ovlap_read )  ### overlap_read
 		case "$2" in 
 		"" )
@@ -402,6 +416,10 @@ python ./src/read_graph_mcl.py $file_bam_sorted $file_snv $cond_pro $smallest_sn
 size="$(wc -l <"$file_snv")"
 size="${size:0-1:1}"
 if [[ $size != "0" ]];then
+	exit 1
+fi
+
+if [[ $only_snv != "0" ]];then
 	exit 1
 fi
 
