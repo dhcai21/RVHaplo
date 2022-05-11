@@ -18,7 +18,7 @@ A viral haplotype reconstruction tool for long reads.
 `conda install -c bioconda samtools pysamstats`<BR/>
 `pip install markov_clustering networkx pandas`<BR/>
 ####
-##### Possible problems
+##### Possible problem
 `'../lib/libcrypto.1.0.0.dylib' (no such file) when using samtools`
 
 You can use the command:
