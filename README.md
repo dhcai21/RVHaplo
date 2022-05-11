@@ -23,7 +23,7 @@ A viral haplotype reconstruction tool for long reads.
 
 You can use the command:
 
-`ln -s your_conda/rvhaplo/lib/libcrypto.your_exisiting_version.dylib your_conda/rvhaplo/lib/libcrypto.1.0.0.dylib`.
+`ln -s your_conda/rvhaplo/lib/libcrypto.your_exisiting_version.dylib your_conda/rvhaplo/lib/libcrypto.1.0.0.dylib`
 
 ## Usage
 #### Initialization
