@@ -59,7 +59,7 @@ optional arguments:
     -ss | --smallest_snv INT :         Minimum # of SNV sites for haplotype construction. (default: 20)
     -os | --only_snv (0 or 1) :        Only output the SNV sites without running the haplotype reconstruction part. (default: 0)
     -or | --overlap_read INT :         Minimum length of overlap for creating edges between two read in the read graph. (default: 5)
-    -wr | --weight_read FLOAT :        Minimum weights of edges in the read graph. (default: 0.8)
+    -wr | --weight_read FLOAT :        Minimum weights of edges in the read graph. (default: 0.9)
     -m  | --mcl_inflaction FLOAT :     Inflaction of MCL algorithm. (default:2)
     -l  | --lar_cluster INT :          A threshold for seperating clusters into two groups based on sizes of clusters. (default: 50)
     -oc | --overlap_cluster INT :      A parameter related to the minimum overlap between consensus sequences of clusters. (default: 10)
