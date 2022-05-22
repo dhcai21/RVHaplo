@@ -18,7 +18,7 @@ ovlap_read = int(sys.argv[9])
 file_prefix = sys.argv[10]
 fre_most_base = float(sys.argv[11])
 thread = int(sys.argv[12])
-only_snv = int(sys.argv[13])
+only_snv = sys.argv[13]
 
 bamfile = pysam.AlignmentFile(file_in)
 ref_name = bamfile.references[0]
