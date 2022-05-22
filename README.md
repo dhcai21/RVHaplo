@@ -1,4 +1,4 @@
-# RVHaplo
+# RVHaplo: Reconstructing Viral Haplotypes using long reads.
 A viral haplotype reconstruction tool for long reads.
 
 
