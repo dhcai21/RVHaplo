@@ -11,13 +11,14 @@ A viral haplotype reconstruction tool for long reads.
 * Python >=3.6
 * samtools >= 1.4.1
 * MCL
-* Required python package: pysamstats >= 1.1.2, networkx >= 2.5.1, pandas >= 1.1.3
+* Required python package: pysamstats >= 1.1.2, pandas >= 1.1.3
 
 #### Install Dependencies
 `conda create -n rvhaplo python==3.6`<BR/>
 `conda activate rvhaplo`<BR/>
 `conda install -c bioconda samtools pysamstats`<BR/>
-`pip install networkx pandas`<BR/>
+`conda install mcl`<BR/>
+`pip install pandas`<BR/>
 ####
 ##### Possible problem
 `'../lib/libcrypto.1.0.0.dylib' (no such file) when using samtools`
@@ -31,9 +32,12 @@ You can use the command:
 `cd RVHaplo-main`<BR/>
 `chmod +x rvhaplo.sh`
 #### Command
-`Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta`<BR/>
+`Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -o result -p prefix -t 8`<BR/>
 
 `If you want to output the SNV sites only:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -os 1`<BR/>
+
+
+`If you have multiple CPU cores, you can set the value of "-t" to accelerate the running.`<BR/>
 
 ```
 required arguments:
@@ -44,6 +48,7 @@ optional arguments:
     -h  | --help :                     Print help message.
     -o  | --out :                      Path where to output the results. (default: ./result)
     -p  | --prefix STR :               Prefix of output file. (default: rvhaplo)
+    -t  | --thread INT :               Number of CPU cores for multiprocessing. (default: 8)
     -e  | --error_rate FLOAT :         Sequencing error rate. (default: 0.1)
     -s  | --signi_level FLOAT :        Significance level for binomial tests. (default: 0.05)
     -c  | --cond_pro FLOAT :           A threshold of the maximum conditional probability for SNV sites. (default: 0.65)
@@ -62,6 +67,10 @@ optional arguments:
     -wc | --weight_cluster FLOAT :     Minimum weights between clusters in the hierarchical clustering (default: 0.8)
     -a  | --abundance FLOAT :          A threshold for filtering low-abundance haplotypes. (default: 0.005)
 ```
+`-t  | --thread`
+
+If you have multiple CPU cores for running the tool, please use this parameter for accelerating the process. The default value is 8 (8 CPU cores).
+
 `-e  | --error_rate`
 
 The sequencing error rate here can be roughly estimated. It will not significantly change the result for the bias between it and the ground truth. And we use 0.1 as the general sequencing error rate for TGS data.
