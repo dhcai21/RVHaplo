@@ -1,7 +1,8 @@
 # RVHaplo: Reconstructing Viral Haplotypes using long reads.
 A viral haplotype reconstruction tool for long reads.
 
-
+### Citation
+Dehan Cai, Yanni Sun, Reconstructing viral haplotypes using long reads, Bioinformatics, Volume 38, Issue 8, 15 April 2022, Pages 2127–2134, https://doi.org/10.1093/bioinformatics/btac089
 
 ### E-mail: dhcai2-c@my.cityu.edu.hk
 ### Version: V2
