@@ -19,7 +19,7 @@ Dehan Cai, Yanni Sun, Reconstructing viral haplotypes using long reads, Bioinfor
 `conda activate rvhaplo`<BR/>
 `conda install -c bioconda samtools pysamstats`<BR/>
 `conda install mcl`<BR/>
-`pip install pandas`<BR/>
+`pip install pandas tqdm`<BR/>
 ####
 ##### Possible problem
 `'../lib/libcrypto.1.0.0.dylib' (no such file) when using samtools`
