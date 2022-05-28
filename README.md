@@ -12,14 +12,14 @@ Dehan Cai, Yanni Sun, Reconstructing viral haplotypes using long reads, Bioinfor
 * Python >=3.6
 * samtools >= 1.4.1
 * MCL
-* Required python package: pysamstats >= 1.1.2, pandas >= 1.1.3
+* Required python package: pysamstats >= 1.1.2, pandas >= 1.1.3 tqdm, scipy
 
 #### Install Dependencies
 `conda create -n rvhaplo python==3.6`<BR/>
 `conda activate rvhaplo`<BR/>
 `conda install -c bioconda samtools pysamstats`<BR/>
 `conda install mcl`<BR/>
-`pip install pandas tqdm`<BR/>
+`pip scipy install pandas tqdm`<BR/>
 ####
 ##### Possible problem
 `'../lib/libcrypto.1.0.0.dylib' (no such file) when using samtools`
