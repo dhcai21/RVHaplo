@@ -453,7 +453,7 @@ mkdir $file_path"/clusters"
 
 echo "haplotypes reconstruction"
 
-python ./src/out_haplotypes.py $file_prefix"_final.pickle" $file_bam $file_path $file_acgt $file_ref \
+python ./src/out_haplotypes.py $file_prefix"_final.pickle" $file_bam_sorted $file_path $file_acgt $file_ref \
 	$file_prefix"_haplotypes.fasta"
 
 rm $file_prefix"_matrix.pickle"
