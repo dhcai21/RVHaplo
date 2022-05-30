@@ -250,7 +250,7 @@ def graph_construction(read_id,snv_overlap=ovlap_read, threshold=weight_read,Rea
         p_cor_i = Map_acc[read_name_i]
         p_cor_j = Map_acc[read_name_j]
         if N >= snv_overlap:
-            weight_temp = (p_cor_i*p_cor_j)*(1-(0.1+d_score)/(N+0.1))
+            weight_temp = np.round((p_cor_i*p_cor_j)*(1-(0.1+d_score)/(N+0.1)),4)
             if weight_temp >= threshold:
                 edge.append(f"{index_i}\t{index_j}\t{weight_temp}\n")
     return edge
