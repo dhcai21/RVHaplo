@@ -442,6 +442,7 @@ fi
 echo "MCL clustering"
 mcl $file_prefix"_reads_graph.txt" --abc -te $thread -I $mcl_inflation -l 1 -L 100 -o $file_prefix"_reads_cluster.txt"
 
+rm $file_prefix"_reads_graph.txt"
 ## hierarchical clustering
 echo "hierarchical clustering"
 python ./src/hierarchical_cluster.py $file_prefix"_matrix.pickle" $lar_cluster $depth \
@@ -457,7 +458,6 @@ python ./src/out_haplotypes.py $file_prefix"_final.pickle" $file_bam_sorted $fil
 	$file_prefix"_haplotypes.fasta"
 
 rm $file_prefix"_matrix.pickle"
-rm $file_prefix"_reads_graph.txt"
 rm $file_prefix"_reads_cluster.txt"
 rm $file_prefix"_final.pickle"
 echo "complete reconstructing haplotypes"
