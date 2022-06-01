@@ -440,7 +440,13 @@ fi
 
 # MCL clustering
 echo "MCL clustering"
-mcl $file_prefix"_reads_graph.txt" --abc -te $thread -I $mcl_inflation -l 1 -L 100 -o $file_prefix"_reads_cluster.txt"
+mcxload -abc $file_prefix"_reads_graph.txt" --stream-mirror --write-binary -o $file_prefix"_reads_graph.mci" -write-tab $file_prefix"_reads_graph.tab"
+rm $file_prefix"_reads_graph.txt"
+mcl $file_prefix"_reads_graph.mci" -te $thread -I $mcl_inflation -l 1 -L 100 -o $file_prefix"_mcl_result.icl"
+rm $file_prefix"_reads_graph.mci"
+mcxdump -icl $file_prefix"_mcl_result.icl" -o $file_prefix"_reads_cluster.txt" -tabr $file_prefix"_reads_graph.tab"
+rm $file_prefix"_mcl_result.icl"
+rm $file_prefix"_reads_graph.tab"
 
 rm $file_prefix"_reads_graph.txt"
 ## hierarchical clustering
