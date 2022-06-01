@@ -194,6 +194,8 @@ if len(final_snv)<smallest_snv:
     f.close()
     exit()
 
+
+f.close()
 if only_snv != '0':
     exit()
 
