@@ -307,18 +307,6 @@ while [[ "$1" != "" ]]; do
 			;;
 		esac
 		;;
-		-d | --depth )  ### Minimum depth of consensus sequence
-		case "$2" in 
-		"" )
-			echo "Error: no input for $1"
-			exit 1
-			;;
-		*)
-			ovlap_cluster="$2"
-			shift 2
-			;;
-		esac
-		;;
 		-wc | --weight_cluster )  ### weight_cluster
 		case "$2" in 
 		"" )
