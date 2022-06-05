@@ -450,7 +450,6 @@ mcxdump -icl $file_prefix"_mcl_result.icl" -o $file_prefix"_reads_cluster.txt" -
 rm $file_prefix"_mcl_result.icl"
 rm $file_prefix"_reads_graph.tab"
 
-rm $file_prefix"_reads_graph.txt"
 ## hierarchical clustering
 echo "hierarchical clustering"
 python ./src/hierarchical_cluster.py $file_prefix"_matrix.pickle" $lar_cluster $depth \
