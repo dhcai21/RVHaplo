@@ -72,7 +72,7 @@ for i in range(len(R)):
     sp.getoutput(command_bam_sorted)
     command_bam_index = 'samtools index '+ file_cluster_bam_sorted
     sp.getoutput(command_bam_index)
-    command_pysamstats = 'pysamstats -f '+ file_ref + ' --type variation_strand ' + file_cluster_bam_sorted + ' > '+ file_path+"/clusters/cluster_"+str(i) + '_acgt.txt'
+    command_pysamstats = 'pysamstats -D 5000000 -f '+ file_ref + ' --type variation_strand ' + file_cluster_bam_sorted + ' > '+ file_path+"/clusters/cluster_"+str(i) + '_acgt.txt'
     sp.getoutput(command_pysamstats)
     seq_temp = []
     file_acgt = file_path+"/clusters/cluster_"+str(i) + '_acgt.txt'
