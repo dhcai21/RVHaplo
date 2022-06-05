@@ -5,6 +5,7 @@ file_ref=""
 ### optional arguments
 file_path='./result'
 prefix="rvhaplo"
+mq=0
 thread=8
 error_rate=0.1
 signi_level=0.05
@@ -42,6 +43,7 @@ function help_info() {
 	echo "    -p  | --prefix STR:               Prefix of output file. (default: rvhaplo)"
 	echo "    -t  | --thread INT:               Number of CPU cores for multiprocessing. (default:8)"
 	echo "    -e  | --error_rate FLOAT:         Sequencing error rate. (default: 0.1)"
+	echo "    -mq | --map_qual INT:             Smallest mapping quality for reads . (default:0)"
 	echo "    -s  | --signi_level FLOAT:        Significance level for binomial tests. (default: 0.05)"
 	echo "    -c  | --cond_pro FLOAT:           A threshold of the maximum conditional probability for SNV sites. (default: 0.65)"
 	echo "    -f  | --fre_snv FLOAT:            The most dominant base' frequency at a to-be-verified site should >= fre_snv. (default: 0.80)"
@@ -135,6 +137,18 @@ while [[ "$1" != "" ]]; do
 			;;
 		*)
 			prefix="$2"
+			shift 2
+			;;
+		esac
+		;;
+		-mq | --map_qual )  ### mapping quality
+		case "$2" in 
+		"" )
+			echo "Error: no input for $1"
+			exit 1
+			;;
+		*)
+			mq="$2"
 			shift 2
 			;;
 		esac
@@ -389,7 +403,7 @@ rm -rf $file_path"/alignment"
 mkdir $file_path"/alignment"
 file_len=`expr ${#file_sam}-4`
 unique_sam=$file_path"/alignment/"$prefix".sam"
-samtools view -h -F 0x900 $file_sam > $unique_sam
+samtools view -h -F 0x900 -q $mq $file_sam > $unique_sam
 file_bam=$file_path"/alignment/"$prefix".bam"
 samtools view -b -S $unique_sam > $file_bam
 rm $unique_sam
