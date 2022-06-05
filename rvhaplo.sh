@@ -411,7 +411,7 @@ file_bam_sorted=$file_path"/alignment/"$prefix"_sorted.bam"
 samtools sort $file_bam -o $file_bam_sorted
 samtools index $file_bam_sorted
 file_acgt=$file_prefix"_acgt.txt"
-pysamstats -f $file_ref --type variation_strand $file_bam_sorted > $file_acgt
+pysamstats -D 5000000 -f $file_ref --type variation_strand $file_bam_sorted > $file_acgt
 
 ########## two binomial tests  ##########
 echo "SNV detection"
