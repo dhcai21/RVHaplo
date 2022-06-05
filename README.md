@@ -50,6 +50,7 @@ optional arguments:
     -o  | --out :                      Path where to output the results. (default: ./result)
     -p  | --prefix STR :               Prefix of output file. (default: rvhaplo)
     -t  | --thread INT :               Number of CPU cores for multiprocessing. (default: 8)
+    -mq | --map_qual INT :             Smallest mapping quality for reads. (default: 0)
     -e  | --error_rate FLOAT :         Sequencing error rate. (default: 0.1)
     -s  | --signi_level FLOAT :        Significance level for binomial tests. (default: 0.05)
     -c  | --cond_pro FLOAT :           A threshold of the maximum conditional probability for SNV sites. (default: 0.65)
@@ -71,6 +72,10 @@ optional arguments:
 `-t  | --thread`
 
 If you have multiple CPU cores for running the tool, please use this parameter for accelerating the process. The default value is 8 (8 CPU cores).
+
+`-mq  | --map_qual`
+
+If your want to filter some reads with small mapping qualities, you can use this parameter (e.g., 20). When you data have a large number of reads, you can use this parameter to remove some bad-quality reads. This will help accelerate the running.
 
 `-e  | --error_rate`
 
