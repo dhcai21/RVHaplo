@@ -34,7 +34,9 @@ file_path = sys.argv[3]
 file_acgt = sys.argv[4]
 file_ref = sys.argv[5]
 file_out = sys.argv[6]
- 
+s_pos = int(sys.argv[7])
+e_pos = int(sys.argv[8])
+
 df = pd.read_csv(file_acgt, sep='\t')
 attributes = ['pos', 'reads_all','deletions','A', 'C', 'G', 'T']
 data = df[attributes]
@@ -79,7 +81,9 @@ for i in range(len(R)):
     df = pd.read_csv(file_acgt, sep='\t')
     data = df[attributes]
     mat = data.values
-    for j in range(len(data)):
+    flag = np.logical_and(mat[:,0]>=s_pos,mat[:,0]<=e_pos)
+    mat = mat[flag,:]
+    for j in range(len(mat)):
         pos = mat[j, 0] - 1
         if mat[j,2]/mat[j,1]>=0.5:
             continue
