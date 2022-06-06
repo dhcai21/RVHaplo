@@ -67,6 +67,8 @@ optional arguments:
     -oc | --overlap_cluster INT :      A parameter related to the minimum overlap between consensus sequences of clusters. (default: 10)
     -d  | --depth INT :                Depth limitation for consensus sequences generated from clusters. (default: 5)
     -wc | --weight_cluster FLOAT :     Minimum weights between clusters in the hierarchical clustering (default: 0.8)
+    -sp | --start_pos INT:             Starting position for generating consensus sequences (default: 1)
+    -ep | --end_pos INT:               Ending position for generating consensus sequences. (default: 1e10)
     -a  | --abundance FLOAT :          A threshold for filtering low-abundance haplotypes. (default: 0.005)
 ```
 `-t  | --thread`
@@ -140,6 +142,16 @@ Depth limitation for consensus sequences generated from clusters. The total numb
 `-wc | --weight_cluster`
 
 Minimum weights between clusters in the hierarchical clustering.
+
+`-sp  | --start_pos`
+
+Starting position for generating consensus sequences. (1-index)
+
+`-ep  | --end_pos`
+
+Ending position for generating consensus sequences. A large default value is for covering the whole genome. (1-index)
+
+A threshold for filtering low-abundance haplotypes.
 
 `-a  | --abundance`
 
