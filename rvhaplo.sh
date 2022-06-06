@@ -24,6 +24,8 @@ ovlap_cluster=10
 depth=5
 weight_cluster=0.8
 abundance=0.005
+s_pos=1
+e_pos=1e10
 
 
 function help_info() {
@@ -59,6 +61,8 @@ function help_info() {
 	echo "    -oc | --overlap_cluster INT:      A parameter related to the minimum overlap between consensus sequences. (default:10) "
 	echo "    -d  | --depth INT:                Depth limitation for consensus sequences generated from clusters. (default:5) "
 	echo "    -wc | --weight_cluster FLOAT:     Minimum weights between clusters in the hierarchical clustering. (default: 0.8)"
+	echo "    -sp | --start_pos INT:            Starting position for generating consensus sequences (default: 1)"
+	echo "    -ep | --end_pos INT:              Ending position for generating consensus sequences. The large value is for covering the whole genome. (default: 1e10)"
 	echo "    -a  | --abundance FLOAT:          A threshold for filtering low-abundance haplotypes. (default: 0.005)"
 	echo "    -h  | --help :                    Print help message."
 	echo ""
@@ -357,6 +361,30 @@ while [[ "$1" != "" ]]; do
 			;;
 		esac
 		;;
+		-sp | --start_pos )  ### start_pos
+		case "$2" in 
+		"" )
+			echo "Error: no input for $1"
+			exit 1
+			;;
+		*)
+			s_pos="$2"
+			shift 2
+			;;
+		esac
+		;;
+		-ep | --end_pos )  ### end_pos
+		case "$2" in 
+		"" )
+			echo "Error: no input for $1"
+			exit 1
+			;;
+		*)
+			e_pos="$2"
+			shift 2
+			;;
+		esac
+		;;
 		-a | --abundance )  ### smallest abundance
 		case "$2" in 
 		"" )
@@ -462,7 +490,7 @@ mkdir $file_path"/clusters"
 echo "haplotypes reconstruction"
 
 python ./src/out_haplotypes.py $file_prefix"_final.pickle" $file_bam_sorted $file_path $file_acgt $file_ref \
-	$file_prefix"_haplotypes.fasta"
+	$file_prefix"_haplotypes.fasta" $s_pos $e_pos
 
 rm $file_prefix"_matrix.pickle"
 rm $file_prefix"_reads_cluster.txt"
