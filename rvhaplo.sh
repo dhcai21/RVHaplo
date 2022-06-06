@@ -62,7 +62,7 @@ function help_info() {
 	echo "    -d  | --depth INT:                Depth limitation for consensus sequences generated from clusters. (default:5) "
 	echo "    -wc | --weight_cluster FLOAT:     Minimum weights between clusters in the hierarchical clustering. (default: 0.8)"
 	echo "    -sp | --start_pos INT:            Starting position for generating consensus sequences (default: 1)"
-	echo "    -ep | --end_pos INT:              Ending position for generating consensus sequences. The large value is for covering the whole genome. (default: 1e10)"
+	echo "    -ep | --end_pos INT:              Ending position for generating consensus sequences. (default: 1e10)"
 	echo "    -a  | --abundance FLOAT:          A threshold for filtering low-abundance haplotypes. (default: 0.005)"
 	echo "    -h  | --help :                    Print help message."
 	echo ""
