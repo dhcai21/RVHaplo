@@ -42,11 +42,13 @@ attributes = ['pos', 'reads_all','deletions','A', 'C', 'G', 'T']
 data = df[attributes]
 mat = data.values
 chara = 'ACGT'
+flag = np.logical_and(mat[:,0]>=s_pos,mat[:,0]<=e_pos)
+mat = mat[flag,:]
 
 f_out = open(file_out,'w')
 if len(haplo_fre)==1:
     haplotype = []
-    for i in range(len(data)):
+    for i in range(len(mat)):
         if mat[i,2]/mat[i,1]>=0.5:
             continue
         index = np.argsort(-mat[i,3:])[0]
