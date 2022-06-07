@@ -444,7 +444,7 @@ pysamstats -D 5000000 -f $file_ref --type variation_strand $file_bam_sorted > $f
 ########## two binomial tests  ##########
 echo "SNV detection"
 file_snv=$file_prefix"_snv.txt"
-python ./src/two_binomial.py $error_rate $signi_level $file_acgt $file_snv $thread
+python ./src/two_binomial.py $error_rate $signi_level $file_acgt $file_snv $thread $s_pos $e_pos
 
 ## judge number of detected SNV sites
 size="$(wc -l <"$file_snv")"
