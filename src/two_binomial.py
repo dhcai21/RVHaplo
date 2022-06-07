@@ -12,13 +12,17 @@ threshold = float(sys.argv[2])
 file_acgt = sys.argv[3]
 f_out = open(sys.argv[4],'w')
 thread = int(sys.argv[5])
+s_pos = int(sys.argv[6])
+e_pos = int(sys.argv[7])
 
 ### load data
 df = pd.read_csv(file_acgt,sep='\t')
 attributes = ['pos','reads_all','deletions','A','C','G','T']
 data = df[attributes]
 mat = data.values
-pos_length,_ = data.shape
+flag = np.logical_and(mat[:,0]>=s_pos,mat[:,0]<=e_pos)
+mat = mat[flag,:]
+pos_length = len(mat)
 
 ### first binomal test
 def first_binomial(i,mat=mat,error=error):
