@@ -25,7 +25,7 @@ depth=5
 weight_cluster=0.8
 abundance=0.005
 s_pos=1
-e_pos=1e10
+e_pos=10000000000
 
 
 function help_info() {
