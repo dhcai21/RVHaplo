@@ -77,7 +77,7 @@ If you have multiple CPU cores for running the tool, please use this parameter f
 
 `-mq  | --map_qual`
 
-If your want to filter some reads with small mapping qualities, you can use this parameter (e.g., 20). When you data have a large number of reads, you can use this parameter to remove some bad-quality reads. This will help accelerate the running.
+If you want to filter some reads with small mapping qualities, you can use this parameter (e.g., 20). When you data have a large number of reads, you can use this parameter to remove some bad-quality reads. This will help accelerate the running.
 
 `-e  | --error_rate`
 
