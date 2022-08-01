@@ -62,7 +62,7 @@ optional arguments:
     -os | --only_snv (0 or 1) :        Only output the SNV sites without running the haplotype reconstruction part. (default: 0)
     -or | --overlap_read INT :         Minimum length of overlap for creating edges between two read in the read graph. (default: 5)
     -wr | --weight_read FLOAT :        Minimum weights of edges in the read graph. (default: 0.85)
-    -m  | --mcl_inflaction FLOAT :     Inflaction of MCL algorithm. (default:2)
+    -m  | --mcl_inflation FLOAT :      Inflation of MCL algorithm. (default:2)
     -l  | --lar_cluster INT :          A threshold for seperating clusters into two groups based on sizes of clusters. (default: 50)
     -oc | --overlap_cluster INT :      A parameter related to the minimum overlap between consensus sequences of clusters. (default: 10)
     -d  | --depth INT :                Depth limitation for consensus sequences generated from clusters. (default: 5)
@@ -123,9 +123,9 @@ Minimum length of overlap for creating edges between two read in the read graph.
 
 Minimum weights of edges in the read graph.
 
-`-m  | --mcl_inflaction`
+`-m  | --mcl_inflation`
 
-The parameter "Inflaction" of the graph clustering algorithm Markov Cluster (MCL). Usually, using the default value 2 is enough here. For further details, please refer to https://micans.org/mcl/.
+The parameter "Inflation" of the graph clustering algorithm Markov Cluster (MCL). Usually, using the default value 2 is enough here. For further details, please refer to https://micans.org/mcl/.
 
 `-l  | --lar_cluster`
 
