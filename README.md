@@ -6,7 +6,8 @@ Dehan Cai, Yanni Sun, Reconstructing viral haplotypes using long reads, Bioinfor
 
 ### E-mail: dhcai2-c@my.cityu.edu.hk
 ### Version: V3 (2022-08-02 updated)
-
+#### Use [Medaka](https://github.com/nanoporetech/medaka) to polish the final result
+#### Support datasets with large sizes (>100k reads) by applying MCL to subgraphs of reads. (use **-sg #_of_subgraphs**)
 
 #### Version: V2 (2022-05-22 updated)
 ##### Use a C package of MCL.
@@ -14,18 +15,28 @@ Dehan Cai, Yanni Sun, Reconstructing viral haplotypes using long reads, Bioinfor
 
 ### Dependencies:
 * Conda
-* Python >=3.6
+* Python >=3.8
 * samtools >= 1.4.1
+* pysam
+* [Medaka](https://github.com/nanoporetech/medaka)
 * MCL
-* Required python package: pysamstats >= 1.1.2, pandas >= 1.1.3 tqdm, scipy
+* Required python package: pandas >= 1.1.3 tqdm, scipy
 
-#### Install Dependencies
-`conda create -n rvhaplo python==3.6`<BR/>
-`conda activate rvhaplo`<BR/>
-`conda install -c bioconda samtools pysamstats`<BR/>
-`conda install mcl`<BR/>
-`pip install scipy pandas tqdm`<BR/>
-####
+### An easiler way to install
+After cloning this respository, you can use anaconda to install the **rvhaplo.yaml** (Linux). This will install all packages you need. The command is: `conda env create -f rvhaplo.yaml -n rvhaplo`
+
+#### An optional way to install
+```
+conda create -n rvhaplo python==3.8
+
+conda activate rvhaplo
+
+conda install -c bioconda samtools
+
+conda install mcl
+
+pip install medaka scipy pandas tqdm pysam
+```
 ##### Possible problem
 `'../lib/libcrypto.1.0.0.dylib' (no such file) when using samtools`
 
@@ -67,6 +78,7 @@ optional arguments:
     -os | --only_snv (0 or 1) :        Only output the SNV sites without running the haplotype reconstruction part. (default: 0)
     -or | --overlap_read INT :         Minimum length of overlap for creating edges between two read in the read graph. (default: 5)
     -wr | --weight_read FLOAT :        Minimum weights of edges in the read graph. (default: 0.85)
+    -sg | --sub_graph INT:             Number of subgraphs to run MCL (default:1)"
     -m  | --mcl_inflation FLOAT :      Inflation of MCL algorithm. (default:2)
     -l  | --lar_cluster INT :          A threshold for seperating clusters into two groups based on sizes of clusters. (default: 50)
     -oc | --overlap_cluster INT :      A parameter related to the minimum overlap between consensus sequences of clusters. (default: 10)
@@ -127,6 +139,11 @@ Minimum length of overlap for creating edges between two read in the read graph.
 `-wr | --weight_read`
 
 Minimum weights of edges in the read graph.
+
+`-sg  | --sub_graph`
+
+If your dataset contains more than 100k reads, the read graph will be large, which may fail the running of MCL. This paramter is to separate the read graph into subgraphs. Then, MCL will be applied to each subgraph for downsteam analysis.
+
 
 `-m  | --mcl_inflation`
 
