@@ -5,7 +5,12 @@ A viral haplotype reconstruction tool for long reads.
 Dehan Cai, Yanni Sun, Reconstructing viral haplotypes using long reads, Bioinformatics, Volume 38, Issue 8, 15 April 2022, Pages 2127–2134, https://doi.org/10.1093/bioinformatics/btac089
 
 ### E-mail: dhcai2-c@my.cityu.edu.hk
-### Version: V2 (2022-05-22 updated)
+### Version: V3 (2022-08-02 updated)
+
+
+#### Version: V2 (2022-05-22 updated)
+##### Use a C package of MCL.
+##### Support multiprocessing.
 
 ### Dependencies:
 * Conda
