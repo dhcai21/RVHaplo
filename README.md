@@ -6,8 +6,8 @@ Dehan Cai, Yanni Sun, Reconstructing viral haplotypes using long reads, Bioinfor
 
 ### E-mail: dhcai2-c@my.cityu.edu.hk
 ### Version: V3 (2022-08-02 updated)
-#### Use [Medaka](https://github.com/nanoporetech/medaka) to polish the final result
-#### Support datasets with large sizes (>100k reads) by applying MCL to subgraphs of reads. (use **-sg #_of_subgraphs**)
+##### Use [Medaka](https://github.com/nanoporetech/medaka) to polish the final result
+##### Support datasets with large sizes (>100k reads) by applying MCL to subgraphs of reads. (use **-sg #_of_subgraphs**)
 
 #### Version: V2 (2022-05-22 updated)
 ##### Use a C package of MCL.
