@@ -46,7 +46,7 @@ You can use the command:
 
 ## Usage
 #### Initialization
-`cd RVHaplo-main`<BR/>
+`cd RVHaplo`<BR/>
 `chmod +x rvhaplo.sh`
 #### Command
 `Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -o result -p prefix -t 8`<BR/>
