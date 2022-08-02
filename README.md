@@ -183,13 +183,13 @@ A threshold for filtering low-abundance haplotypes.
 
 
 ## Output Results
-All reconstructed haplotypes are summarized in a file "*_haplotypes.fasta". Below is an example of three haplotypes.
+All reconstructed haplotypes are summarized in a file ***_haplotypes.fasta** (Polished by Medaka). Below is an example of three haplotypes.
 ```
->haplotype_0_length_9181_abundance_0.50
+>haplotype_0_length_9181_abundance_0.50_number_of_reads_5000_depth_500
 GGTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGGTCTCTGGCTAACTAGGGAACC...
->haplotype_1_length_9178_abundance_0.30
+>haplotype_1_length_9178_abundance_0.30_number_of_reads_3000_depth_300
 GTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGAACCC...
->haplotype_2_length_9180_abundance_0.20
+>haplotype_2_length_9180_abundance_0.20_number_of_reads_2000_depth_200
 GGTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGGACC...
 ```
 
