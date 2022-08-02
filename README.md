@@ -13,6 +13,7 @@ Dehan Cai, Yanni Sun, Reconstructing viral haplotypes using long reads, Bioinfor
 ##### Use a C package of MCL.
 ##### Support multiprocessing.
 
+## Installation
 ### Dependencies:
 * Conda
 * Python >=3.8
