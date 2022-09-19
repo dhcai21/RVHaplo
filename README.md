@@ -99,7 +99,7 @@ If you want to filter some reads with small mapping qualities, you can use this 
 
 `-e  | --error_rate`
 
-The sequencing error rate here can be roughly estimated. It will not significantly change the result for the bias between it and the ground truth. And we use 0.1 as the general sequencing error rate for TGS data.
+You can input a roughly estimated sequencing error rate. It will not significantly affect the SNV detection result as there are post-processing steps. And we use 0.1 as the general sequencing error rate for TGS data.
 
 `-s  | --signi_level`
 
@@ -115,11 +115,11 @@ Usually, sites containing fake SNVs caused by sequencing errors still have high 
 
 `-n1 | --num_read_1`
 
-Minimum number of reads for calculating the conditional probability given one conditional site. For example, P(A|B).
+Minimum number of reads for calculating the conditional probability given one conditional site. For example, P(A|B). A large value of n1 will improve the precision of detecting SNV sites, but the recall may reduce because some SNVs from low-abundant haplotypes are missed. If you are more concerned about the quality of reconstructed haplotypes instead of reconstructing the low-abundant haplotypes, you can set a large value of n1.
 
 `-n2 | --num_read_2`
 
-The minimum number of reads for calculating the conditional probability given more than one conditional site. For example, P(A|B1,B2,B3,...). As the number of reads covering more SNVs sites will reduce, we allow a smaller number of reads for calculating the conditional probability given more conditional sites compared to only given one conditional site.
+The minimum number of reads for calculating the conditional probability given more than one conditional site. For example, P(A|B1,B2,B3,...). As the number of reads covering more SNVs sites will reduce, we allow a smaller number of reads for calculating the conditional probability given more conditional sites compared to only given one conditional site. A large value of n1 will improve the precision of detecting SNV sites, but the recall may reduce because some SNVs from low-abundant haplotypes are missed. If you are more concerned about the quality of reconstructed haplotypes instead of reconstructing the low-abundant haplotypes, you can set a large value of n2. 
 
 `-g  | --gap`
 
