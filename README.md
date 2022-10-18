@@ -138,7 +138,7 @@ Only output the SNV sites without running the haplotype reconstruction part.
 
 `-or | --overlap_read`
 
-Minimum length of overlap for creating edges between two read in the read graph.
+Minimum length of overlap for creating edges between reads in the read graph.
 
 `-wr | --weight_read`
 
