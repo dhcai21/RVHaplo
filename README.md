@@ -53,9 +53,9 @@ You can use the command:
 
 `alignment: minimap2 -a reference.fasta reads.fastq > alignment.sam`
 
-`Example:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -o result -p prefix -t 8`<BR/>
+`RVHaplo:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -o result -p prefix -t 8`<BR/>
 
-`If you want to output the SNV sites only:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -os 1`<BR/>
+`If you want to output the SNV sites only: ./rvhaplo.sh -i alignment.sam -r reference.fasta -os 1`<BR/>
 
 
 `If you have multiple CPU cores, you can set the value of "-t" to accelerate the running.`<BR/>
