@@ -56,7 +56,7 @@ function help_info() {
 	echo "    -ss | --smallest_snv INT:         Minimum # of SNV sites for haplotype construction. (default:20)"
 	echo "    -os | --only_snv (0 or 1) :       Only output the SNV sites without running the haplotype reconstruction part. (default: 0)"
 	echo "    -or | --overlap_read INT:         Minimum length of overlap for creating edges between two read in the read graph. (default: 5)"
-	echo "    -wr | --weight_read FLOAT:        Minimum weights of edges in the read graph. (default:0.8)"
+	echo "    -wr | --weight_read FLOAT:        Minimum weights of edges in the read graph. (default:0.85)"
 	echo "    -sg | --sub_graph INT:            Number of subgraphs to run MCL (default:1)"
 	echo "    -m  | --mcl_inflation FLOAT:      Inflation of MCL algorithm. (default:2)"
 	echo "    -l  | --lar_cluster INT:          A threshold for seperating clusters into two groups based on sizes of clusters. (default:50)"
