@@ -142,7 +142,7 @@ Minimum length of overlap for creating edges between reads in the read graph.
 
 `-wr | --weight_read`
 
-Minimum weights of edges in the read graph.
+Minimum weights of edges in the read graph. If your data has many haplotypes or the haplotypes are highly similar, I would suggest using a higher weight, e.g., 0.9.
 
 `-sg  | --sub_graph`
 
@@ -167,7 +167,7 @@ Depth limitation for consensus sequences generated from clusters. The total numb
 
 `-wc | --weight_cluster`
 
-Minimum weights between clusters in the hierarchical clustering.
+Minimum weights between clusters in the hierarchical clustering. If your data has many haplotypes or the haplotypes are highly similar, I would suggest using a higher weight, e.g., 0.9.
 
 `-sp  | --start_pos`
 
