@@ -138,7 +138,7 @@ Only output the SNV sites without running the haplotype reconstruction part.
 
 `-or | --overlap_read`
 
-Minimum length of overlap for creating edges between reads in the read graph.
+Minimum length of overlap for creating edges between reads in the read graph. If there are many detected SNV sites and the read length is long, you can set a higher threshold. 
 
 `-wr | --weight_read`
 
@@ -159,7 +159,7 @@ A threshold for seperating clusters into two groups based on sizes of clusters. 
 
 `-oc | --overlap_cluster`
 
-A parameter related to the minimum overlap between consensus sequences of clusters. The minimum overlap between consensus sequences is min(0.1 * x, oc), where x is the number of detected SNV sites.
+A parameter related to the minimum overlap between consensus sequences of clusters. The minimum overlap between consensus sequences is min(0.1 * x, oc), where x is the number of detected SNV sites. If there are many detected SNV sites and the read length is long, you can set a higher threshold.
 
 `-d  | --depth`
 
