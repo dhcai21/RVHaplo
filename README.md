@@ -56,7 +56,8 @@ You can use the command:
 `RVHaplo:   ./rvhaplo.sh -i alignment.sam -r reference.fasta -o result -p prefix -t 8`<BR/>
 
 ```
-If your dataset has a large number of reads (e.g., >50k), you can use the parameter -sg n to separate the graph into n subgraphs to running.
+If your dataset has a large number of reads (e.g., >50k), you can use the parameter 
+"-sg n" to separate the graph into n subgraphs to running.
 
 If you want to output the SNV sites only: ./rvhaplo.sh -i alignment.sam -r reference.fasta -os 1
 
