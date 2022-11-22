@@ -61,9 +61,6 @@ You can use the command:
 
 `If you have multiple CPU cores, you can set the value of "-t" to accelerate the running.`<BR/>
 
-```Usually, using the default parameters should be fine. You can check the description below to adjust the parameters. But if you don't know how to adjust the parameters, feel free to email me.`<BR/>
-```
-
 ```
 required arguments:
     -i  | --input:                     alignment file (sam)
@@ -96,6 +93,11 @@ optional arguments:
     -ep | --end_pos INT:               Ending position for generating consensus sequences. (default: 1e10)
     -a  | --abundance FLOAT :          A threshold for filtering low-abundance haplotypes. (default: 0.005)
 ```
+
+```
+Usually, using the default parameters should be fine. You can check the description below to adjust the parameters. But if you don't know how to adjust the parameters, feel free to email me.`<BR/>
+```
+
 `-t  | --thread`
 
 If you have multiple CPU cores for running the tool, please use this parameter for accelerating the process. The default value is 8 (8 CPU cores).
