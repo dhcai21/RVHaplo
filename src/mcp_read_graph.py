@@ -276,11 +276,11 @@ else:
     for k in range(sub_graph):
         file_index = k
         file = f'{file_prefix}{k}_reads_graph.txt'
-        query_list = [[i+k,file] for i in range(0,len(index_r)-1,sub_graph)]
-        if k==sub_graph-1:
-            temp = query_list[-1][0]+1
-            for i in range(temp,len(index_r)-1):
-                query_list.append([i,file])
+        query_list = [[i+k,file] for i in range(0,len(index_r)-1,sub_graph) if (i+k)<len(index_r)-1]
+ #       if k==sub_graph-1:
+ #           temp = query_list[-1][0]+1
+ #           for i in range(temp,len(index_r)-1):
+ #               query_list.append([i,file])
         with concurrent.futures.ProcessPoolExecutor(thread) as executor:
             results = list(tqdm(executor.map(writeedge, query_list), total=len(query_list)))
 
