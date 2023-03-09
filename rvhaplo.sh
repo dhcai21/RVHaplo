@@ -488,6 +488,14 @@ if [[ $only_snv != 0 ]];then
 	exit 1
 fi
 
+## check the number of reads with overlaps
+size="$(wc -l <"$file_prefix"_reads_graph.txt)"
+size="${size:0-1:1}"
+if [[ $size == "0" ]];then
+	echo "No enough reads with overlaps"
+	exit 1
+fi
+
 # MCL clustering
 echo "MCL clustering"
 python ./src/run_mcl.py "$file_prefix" "$thread" "$mcl_inflation" "$sub_graph"
