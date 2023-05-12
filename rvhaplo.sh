@@ -70,7 +70,7 @@ function help_info() {
 	echo ""
 	echo "    For further details of above arguments, please refer to https://github.com/dhcai21/RVHaplo   "
 	echo ""
-	exit 1
+	exit 0
 }
 
 if [[ "$1" == "" ]];then
@@ -467,7 +467,7 @@ if [[ $size != "0" ]];then
 	python ./src/out_haplotypes.py $file_prefix"_clusters.pickle" $file_bam_sorted $file_path $file_acgt 1 $file_prefix"_consensus.fasta" $s_pos $e_pos
 	python ./src/extract_reads.py $file_path $prefix 1
 	python ./src/run_medaka.py $file_path $prefix 1
-	exit 1
+	exit 0
 fi
 
 ## maximum conditional probability and construct reads graph
@@ -481,11 +481,11 @@ if [[ $size != "0" ]];then
 	python ./src/out_haplotypes.py $file_prefix"_clusters.pickle" $file_bam_sorted $file_path $file_acgt 1 $file_prefix"_consensus.fasta" $s_pos $e_pos
 	python ./src/extract_reads.py $file_path $prefix 1
 	python ./src/run_medaka.py $file_path $prefix 1
-	exit 1
+	exit 0
 fi
 
 if [[ $only_snv != 0 ]];then
-	exit 1
+	exit 0
 fi
 
 ## check the number of reads with overlaps
@@ -493,7 +493,7 @@ size="$(wc -l <"$file_prefix"_reads_graph.txt)"
 size="${size:0-1:1}"
 if [[ $size == "0" ]];then
 	echo "No enough reads with overlaps"
-	exit 1
+	exit 0
 fi
 
 # MCL clustering
@@ -523,4 +523,4 @@ rm $file_prefix"_clusters.pickle"
 rm -rf $file_path/medaka
 echo "complete reconstructing haplotypes"
 
-exit 1
+exit 0
