@@ -462,7 +462,7 @@ python ./src/two_binomial.py $error_rate $signi_level $file_acgt $file_snv $thre
 
 ## judge number of detected SNV sites
 size="$(wc -l <"$file_snv")"
-size="${size:0-1:1}"
+#size="${size:0-1:1}"
 if [[ $size != "0" ]];then
 	python ./src/out_haplotypes.py $file_prefix"_clusters.pickle" $file_bam_sorted $file_path $file_acgt 1 $file_prefix"_consensus.fasta" $s_pos $e_pos
 	python ./src/extract_reads.py $file_path $prefix 1
@@ -476,7 +476,7 @@ python ./src/mcp_read_graph.py $file_bam_sorted $file_snv $cond_pro $smallest_sn
 
 ## judge number of detected SNV sites
 size="$(wc -l <"$file_snv")"
-size="${size:0-1:1}"
+#size="${size:0-1:1}"
 if [[ $size != "0" ]];then
 	python ./src/out_haplotypes.py $file_prefix"_clusters.pickle" $file_bam_sorted $file_path $file_acgt 1 $file_prefix"_consensus.fasta" $s_pos $e_pos
 	python ./src/extract_reads.py $file_path $prefix 1
@@ -490,7 +490,7 @@ fi
 
 ## check the number of reads with overlaps
 size="$(wc -l <"$file_prefix"_reads_graph.txt)"
-size="${size:0-1:1}"
+#size="${size:0-1:1}"
 if [[ $size == "0" ]];then
 	echo "No enough reads with overlaps"
 	exit 0
