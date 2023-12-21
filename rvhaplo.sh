@@ -439,10 +439,10 @@ fi
 echo "count nucleotide occurrence"
 if [[ "$file_path" != "." ]];then
 	rm -rf $file_path
-	mkdir $file_path
+	mkdir -p $file_path
 fi
 rm -rf $file_path"/alignment"
-mkdir $file_path"/alignment"
+mkdir -p $file_path"/alignment"
 file_len=`expr ${#file_sam}-4`
 unique_sam=$file_path"/alignment/"$prefix".sam"
 samtools view -h -F 0x900 -q $mq $file_sam > $unique_sam
@@ -507,7 +507,7 @@ python ./src/hierarchical_cluster.py $file_prefix"_matrix.pickle" $lar_cluster $
 
 ## reconstruct haplotypes
 rm -rf $file_path"/clusters"
-mkdir $file_path"/clusters"
+mkdir -p $file_path"/clusters"
 
 echo "haplotypes reconstruction"
 
