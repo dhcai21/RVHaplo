@@ -21,7 +21,7 @@ Dehan Cai, Yanni Sun, Reconstructing viral haplotypes using long reads, Bioinfor
 * pysam
 * [Medaka](https://github.com/nanoporetech/medaka)
 * MCL
-* Required python package: pandas >= 1.1.3 tqdm, scipy
+* Required python package: pandas >= 1.1.3 tqdm, scipy>=1.17.0
 
 ### An easiler way to install
 After cloning this respository, you can use anaconda to install the **rvhaplo.yaml** (Linux). This will install all packages you need. The command is: `conda env create -f rvhaplo.yaml -n rvhaplo`
