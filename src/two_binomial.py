@@ -30,7 +30,7 @@ pos_length = len(mat)
 def first_binomial(i,mat=mat,error=error):
     x_value = max(mat[i,2:])
     n_value = mat[i,1]
-    p_value = stats.binom_test(x_value,n=n_value,p=1-error,alternative='less')
+    p_value = stats.binomtest(x_value,n=n_value,p=1-error,alternative='less').pvalue
     return p_value
 
 query_list = [i for i in range(pos_length)]
@@ -67,7 +67,7 @@ def second_binomial(i,mat=mat,beta=beta):
     obes = temp[np.argsort(-temp)]
     x_value = obes[1]
     n_value = np.sum(obes)
-    p_value = stats.binom_test(x_value,n=n_value,p=beta,alternative='greater')
+    p_value = stats.binomtest(x_value,n=n_value,p=beta,alternative='greater').pvalue
     return p_value
 
 print("second binomial test")
