@@ -492,7 +492,10 @@ fi
 size="$(wc -l <"$file_prefix"_reads_graph.txt)"
 #size="${size:0-1:1}"
 if (( $size == 0 ));then
-	echo "No enough reads with overlaps"
+	echo "Not enough reads with overlaps"
+	python ./src/out_haplotypes.py $file_prefix"_clusters.pickle" $file_bam_sorted $file_path $file_acgt 1 $file_prefix"_consensus.fasta" $s_pos $e_pos
+	python ./src/extract_reads.py $file_path $prefix 1
+	python ./src/run_medaka.py $file_path $prefix 1
 	exit 0
 fi
 
